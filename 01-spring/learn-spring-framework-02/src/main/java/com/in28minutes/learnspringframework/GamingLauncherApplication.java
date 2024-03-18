@@ -1,16 +1,17 @@
 package com.in28minutes.learnspringframework;
 
 import com.in28minutes.learnspringframework.game.GameRunner;
-import com.in28minutes.learnspringframework.game.GamingConsole;
-import com.in28minutes.learnspringframework.game.MarioGame;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 
 
-
-public class App03GamingSpringBeans {
+@Configuration
+@ComponentScan("com.in28minutes.learnspringframework.game")
+public class GamingLauncherApplication {
     public static void main(String[] args) {
 
-        try ( AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(GamingConfiguration.class)){
+        try ( AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(GamingLauncherApplication.class)){
             context.getBean(GameRunner.class).run();
         }
 
